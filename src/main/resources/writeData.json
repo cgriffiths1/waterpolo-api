@@ -1,0 +1,15 @@
+[ {
+  "teamName" : "teamName",
+  "teamLocation" : "teamLocation",
+  "teamRank" : 0,
+  "teamPoints" : 1,
+  "teamCaptain" : "teamCaptain",
+  "teamSquad" : null
+}, {
+  "teamName" : "teamName",
+  "teamLocation" : "teamLocation",
+  "teamRank" : 1,
+  "teamPoints" : 0,
+  "teamCaptain" : "teamCaptain",
+  "teamSquad" : null
+} ]
