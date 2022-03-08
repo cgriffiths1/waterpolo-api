@@ -5,6 +5,15 @@ public class PlayerModel {
     private int playerAge;
     private String playerPosition;
 
+    public PlayerModel(String name, int age, String position) {
+        this.playerName = name;
+        this.playerAge = age;
+        this.playerPosition = position;
+    }
+
+    public PlayerModel() {
+    }
+
     public String getPlayerName(){return playerName;}
 
     public void setPlayerName(String playerName){this.playerName = playerName;}
