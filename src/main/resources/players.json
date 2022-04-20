@@ -1,0 +1,17 @@
+[ {
+  "name" : "Griffiths",
+  "age" : 20,
+  "position" : "Winger"
+}, {
+  "name" : "Laxton",
+  "age" : 32,
+  "position" : "Centre Forward"
+}, {
+  "name" : "Sanders",
+  "age" : 22,
+  "position" : "Goalkeeper"
+}, {
+  "name" : "Pittick",
+  "age" : 23,
+  "position" : "Centre Back"
+} ]

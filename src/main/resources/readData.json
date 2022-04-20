@@ -1,118 +1,93 @@
-[
-   {
-      "teamName":"Welsh Wanderers",
-      "teamLocation":"Cardiff",
-      "teamRank":1,
-      "teamPoints":0,
-      "teamCaptain":"Laxton",
-      "teamSquad":[
-         {
-            "playerName":"Griffiths",
-            "playerAge":20,
-            "playerPosition":"Winger"
-         },
-         {
-            "playerName":"Laxton",
-            "playerAge":32,
-            "playerPosition":"Centre Forward"
-         },
-         {
-            "playerName":"Sanders",
-            "playerAge":22,
-            "playerPosition":"Goalkeeper"
-         },
-         {
-            "playerName":"Pittick",
-            "playerAge":23,
-            "playerPosition":"Centre Back"
-         }
-      ]
-   },
-   {
-      "teamName":"London Penguin",
-      "teamLocation":"London",
-      "teamRank":2,
-      "teamPoints":0,
-      "teamCaptain":"Arat",
-      "teamSquad":[
-         {
-            "playerName":"Arat",
-            "playerAge":28,
-            "playerPosition":"Driver"
-         },
-         {
-            "playerName":"Varetti",
-            "playerAge":27,
-            "playerPosition":"Centre Back"
-         },
-         {
-            "playerName":"McHugh",
-            "playerAge":30,
-            "playerPosition":"Goalkeeper"
-         },
-         {
-            "playerName":"Salt",
-            "playerAge":23,
-            "playerPosition":"Winger"
-         }
-      ]
-   },
-   {
-      "teamName":"Polytechnic",
-      "teamLocation":"London",
-      "teamRank":3,
-      "teamPoints":0,
-      "teamCaptain":"Brown",
-      "teamSquad":[
-         {
-            "playerName":"Brown",
-            "playerAge":27,
-            "playerPosition":"Centre Back"
-         },
-         {
-            "playerName":"Finizola",
-            "playerAge":29,
-            "playerPosition":"Winger"
-         },
-         {
-            "playerName":"Lewis",
-            "playerAge":24,
-            "playerPosition":"Goalkeeper"
-         },
-         {
-            "playerName":"Williams",
-            "playerAge":23,
-            "playerPosition":"Driver"
-         }
-      ]
-   },
-   {
-      "teamName":"Caledonia WPC",
-      "teamLocation":"Caledonia",
-      "teamRank":4,
-      "teamPoints":0,
-      "teamCaptain":"Campbell",
-      "teamSquad":[
-         {
-            "playerName":"Campbell",
-            "playerAge":33,
-            "playerPosition":"Driver"
-         },
-         {
-            "playerName":"Zahra",
-            "playerAge":21,
-            "playerPosition":"Centre Back"
-         },
-         {
-            "playerName":"Barnes",
-            "playerAge":24,
-            "playerPosition":"Goalkeeper"
-         },
-         {
-            "playerName":"Nesbitt",
-            "playerAge":20,
-            "playerPosition":"Winger"
-         }
-      ]
-   }
-]
+[ {
+  "teamName" : "Welsh Wanderers",
+  "teamLocation" : "Cardiff",
+  "teamRank" : 1,
+  "teamPoints" : 0,
+  "teamCaptain" : "Laxton",
+  "teamSquad" : [ {
+    "name" : "Griffiths",
+    "age" : 20,
+    "position" : "Winger"
+  }, {
+    "name" : "Laxton",
+    "age" : 32,
+    "position" : "Centre Forward"
+  }, {
+    "name" : "Sanders",
+    "age" : 22,
+    "position" : "Goalkeeper"
+  }, {
+    "name" : "Pittick",
+    "age" : 23,
+    "position" : "Centre Back"
+  } ]
+}, {
+  "teamName" : "London Penguin",
+  "teamLocation" : "London",
+  "teamRank" : 2,
+  "teamPoints" : 0,
+  "teamCaptain" : "Arat",
+  "teamSquad" : [ {
+    "name" : "Arat",
+    "age" : 28,
+    "position" : "Driver"
+  }, {
+    "name" : "Varetti",
+    "age" : 27,
+    "position" : "Centre Back"
+  }, {
+    "name" : "McHugh",
+    "age" : 30,
+    "position" : "Goalkeeper"
+  }, {
+    "name" : "Salt",
+    "age" : 23,
+    "position" : "Winger"
+  } ]
+}, {
+  "teamName" : "Polytechnic",
+  "teamLocation" : "London",
+  "teamRank" : 3,
+  "teamPoints" : 0,
+  "teamCaptain" : "Brown",
+  "teamSquad" : [ {
+    "name" : "Brown",
+    "age" : 27,
+    "position" : "Centre Back"
+  }, {
+    "name" : "Finizola",
+    "age" : 29,
+    "position" : "Winger"
+  }, {
+    "name" : "Lewis",
+    "age" : 24,
+    "position" : "Goalkeeper"
+  }, {
+    "name" : "Williams",
+    "age" : 23,
+    "position" : "Driver"
+  } ]
+}, {
+  "teamName" : "Caledonia WPC",
+  "teamLocation" : "Caledonia",
+  "teamRank" : 4,
+  "teamPoints" : 0,
+  "teamCaptain" : "Campbell",
+  "teamSquad" : [ {
+    "name" : "Campbell",
+    "age" : 33,
+    "position" : "Driver"
+  }, {
+    "name" : "Zahra",
+    "age" : 21,
+    "position" : "Centre Back"
+  }, {
+    "name" : "Barnes",
+    "age" : 24,
+    "position" : "Goalkeeper"
+  }, {
+    "name" : "Nesbitt",
+    "age" : 20,
+    "position" : "Winger"
+  } ]
+} ]

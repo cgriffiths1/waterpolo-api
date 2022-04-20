@@ -1,28 +1,28 @@
 package uk.gov.companieshouse.waterpoloapi.model;
 
 public class PlayerModel {
-    private String playerName;
-    private int playerAge;
-    private String playerPosition;
+    private String name;
+    private int age;
+    private String position;
 
     public PlayerModel(String name, int age, String position) {
-        this.playerName = name;
-        this.playerAge = age;
-        this.playerPosition = position;
+        this.name = name;
+        this.age = age;
+        this.position = position;
     }
 
     public PlayerModel() {
     }
 
-    public String getPlayerName(){return playerName;}
+    public String getName(){return name;}
 
-    public void setPlayerName(String playerName){this.playerName = playerName;}
+    public void setName(String name){this.name = name;}
 
-    public int getPlayerAge(){return playerAge;}
+    public int getAge(){return age;}
 
-    public void setPlayerAge(int playerAge){this.playerAge = playerAge;}
+    public void setAge(int age){this.age = age;}
 
-    public String getPlayerPosition(){return playerPosition;}
+    public String getPosition(){return position;}
 
-    public void setPlayerPosition(String playerPosition){this.playerPosition = playerPosition;}
+    public void setPosition(String position){this.position = position;}
 }

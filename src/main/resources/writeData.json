@@ -5,21 +5,21 @@
   "teamPoints" : 0,
   "teamCaptain" : "Laxton",
   "teamSquad" : [ {
-    "playerName" : "Griffiths",
-    "playerAge" : 20,
-    "playerPosition" : "Winger"
+    "name" : "Griffiths",
+    "age" : 20,
+    "position" : "Winger"
   }, {
-    "playerName" : "Laxton",
-    "playerAge" : 32,
-    "playerPosition" : "Centre Forward"
+    "name" : "Laxton",
+    "age" : 32,
+    "position" : "Centre Forward"
   }, {
-    "playerName" : "Sanders",
-    "playerAge" : 22,
-    "playerPosition" : "Goalkeeper"
+    "name" : "Sanders",
+    "age" : 22,
+    "position" : "Goalkeeper"
   }, {
-    "playerName" : "Pittick",
-    "playerAge" : 23,
-    "playerPosition" : "Centre Back"
+    "name" : "Pittick",
+    "age" : 23,
+    "position" : "Centre Back"
   } ]
 }, {
   "teamName" : "London Penguin",
@@ -28,21 +28,21 @@
   "teamPoints" : 0,
   "teamCaptain" : "Arat",
   "teamSquad" : [ {
-    "playerName" : "Arat",
-    "playerAge" : 28,
-    "playerPosition" : "Driver"
+    "name" : "Arat",
+    "age" : 28,
+    "position" : "Driver"
   }, {
-    "playerName" : "Varetti",
-    "playerAge" : 27,
-    "playerPosition" : "Centre Back"
+    "name" : "Varetti",
+    "age" : 27,
+    "position" : "Centre Back"
   }, {
-    "playerName" : "McHugh",
-    "playerAge" : 30,
-    "playerPosition" : "Goalkeeper"
+    "name" : "McHugh",
+    "age" : 30,
+    "position" : "Goalkeeper"
   }, {
-    "playerName" : "Salt",
-    "playerAge" : 23,
-    "playerPosition" : "Winger"
+    "name" : "Salt",
+    "age" : 23,
+    "position" : "Winger"
   } ]
 }, {
   "teamName" : "Polytechnic",
@@ -51,21 +51,21 @@
   "teamPoints" : 0,
   "teamCaptain" : "Brown",
   "teamSquad" : [ {
-    "playerName" : "Brown",
-    "playerAge" : 27,
-    "playerPosition" : "Centre Back"
+    "name" : "Brown",
+    "age" : 27,
+    "position" : "Centre Back"
   }, {
-    "playerName" : "Finizola",
-    "playerAge" : 29,
-    "playerPosition" : "Winger"
+    "name" : "Finizola",
+    "age" : 29,
+    "position" : "Winger"
   }, {
-    "playerName" : "Lewis",
-    "playerAge" : 24,
-    "playerPosition" : "Goalkeeper"
+    "name" : "Lewis",
+    "age" : 24,
+    "position" : "Goalkeeper"
   }, {
-    "playerName" : "Williams",
-    "playerAge" : 23,
-    "playerPosition" : "Driver"
+    "name" : "Williams",
+    "age" : 23,
+    "position" : "Driver"
   } ]
 }, {
   "teamName" : "Caledonia WPC",
@@ -74,42 +74,53 @@
   "teamPoints" : 0,
   "teamCaptain" : "Campbell",
   "teamSquad" : [ {
-    "playerName" : "Campbell",
-    "playerAge" : 33,
-    "playerPosition" : "Driver"
+    "name" : "Campbell",
+    "age" : 33,
+    "position" : "Driver"
   }, {
-    "playerName" : "Zahra",
-    "playerAge" : 21,
-    "playerPosition" : "Centre Back"
+    "name" : "Zahra",
+    "age" : 21,
+    "position" : "Centre Back"
   }, {
-    "playerName" : "Barnes",
-    "playerAge" : 24,
-    "playerPosition" : "Goalkeeper"
+    "name" : "Barnes",
+    "age" : 24,
+    "position" : "Goalkeeper"
   }, {
-    "playerName" : "Nesbitt",
-    "playerAge" : 20,
-    "playerPosition" : "Winger"
+    "name" : "Nesbitt",
+    "age" : 20,
+    "position" : "Winger"
   } ]
 }, {
-  "teamName" : "teamName",
-  "teamLocation" : "teamLocation",
-  "teamRank" : 0,
-  "teamPoints" : 1,
-  "teamCaptain" : "teamCaptain",
-  "teamSquad" : [ {
-    "playerName" : "name",
-    "playerAge" : 20,
-    "playerPosition" : "Winger"
-  }, {
-    "playerName" : "name",
-    "playerAge" : 21,
-    "playerPosition" : "Goalkeeper"
-  } ]
-}, {
-  "teamName" : "teamName",
-  "teamLocation" : "teamLocation",
-  "teamRank" : 1,
+  "teamName" : "Newport WPC",
+  "teamLocation" : "Newport",
+  "teamRank" : 5,
   "teamPoints" : 0,
-  "teamCaptain" : "teamCaptain",
+  "teamCaptain" : "Farror",
   "teamSquad" : null
+}, {
+  "teamName" : "Swansea WPC",
+  "teamLocation" : "Swansea",
+  "teamRank" : 7,
+  "teamPoints" : 0,
+  "teamCaptain" : "Davies",
+  "teamSquad" : [ {
+    "name" : "Davies",
+    "age" : 30,
+    "position" : "Winger"
+  } ]
+}, {
+  "teamName" : "test",
+  "teamLocation" : "test",
+  "teamRank" : 0,
+  "teamPoints" : 0,
+  "teamCaptain" : "test",
+  "teamSquad" : [ {
+    "name" : "test1",
+    "age" : 30,
+    "position" : "Winger"
+  }, {
+    "name" : "test2",
+    "age" : 25,
+    "position" : "Centre Forward"
+  } ]
 } ]

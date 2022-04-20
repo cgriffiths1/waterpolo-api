@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -42,20 +41,29 @@ public class WaterpoloController {
         return teamList;
     }
 
+    @GetMapping("/allPlayers")
+    public List<PlayerModel> getAllPlayersFromFile(){
+        List<PlayerModel> playerList = new ArrayList<>();
+        ObjectMapper objectMapper = new ObjectMapper();
+        try{
+            playerList = objectMapper.readValue(new File("src/main/resources/players.json"), new TypeReference<List<PlayerModel>>() {
+            });
+
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+        return playerList;
+    }
+
     @PostMapping("/teams")
-    public void sendTeams(){
+    public void sendTeams(@RequestBody TeamModel newTeam){
         List<TeamModel> teamsListNew = getAllTeamsFromFile();
         try{
-            List<TeamModel> teamsList = Arrays.asList(
-                    new TeamModel("teamName", "teamLocation", 0, 1, "teamCaptain",
-                            Arrays.asList(new PlayerModel("name", 20, "Winger"), new PlayerModel("name", 21, "Goalkeeper"))), new TeamModel("teamName", "teamLocation", 1, 0, "teamCaptain",
-                            null)
-            );
-
-            teamsListNew.addAll(teamsList);
+            teamsListNew.add(newTeam);
             ObjectMapper objectMapper = new ObjectMapper();
             ObjectWriter writer = objectMapper.writer(new DefaultPrettyPrinter());
-            writer.writeValue(Paths.get("src/main/resources/writeData.json").toFile(), teamsListNew);
+            writer.writeValue(Paths.get("src/main/resources/readData.json").toFile(), teamsListNew);
 
         }
         catch(IOException e){
@@ -75,31 +83,31 @@ public class WaterpoloController {
         return null;
     }
 
-    @DeleteMapping("/teams/{name}")
-    public void deleteTeam(@PathVariable String name){
+    @PostMapping("/teams/delete")
+    public void deleteTeam(@RequestBody TeamModel team){
         List<TeamModel> teamsList = getAllTeamsFromFile();
         try {
             for (int i = 0; i < teamsList.size(); i++) {
-                if (teamsList.get(i).getTeamName().equals(name)) {
+                if (teamsList.get(i).getTeamName().equals(team.getTeamName())) {
                     teamsList.remove(teamsList.get(i));
                 }
             }
 
             ObjectMapper objectMapper = new ObjectMapper();
             ObjectWriter writer = objectMapper.writer(new DefaultPrettyPrinter());
-            writer.writeValue(Paths.get("src/main/resources/writeData.json").toFile(), teamsList);
+            writer.writeValue(Paths.get("src/main/resources/readData.json").toFile(), teamsList);
         }
         catch(IOException e){
             e.printStackTrace();
         }
     }
 
-    @PutMapping("/teams/{name}")
-    public void updateTeam(@PathVariable  String name){
+    @PostMapping("/teams/update")
+    public void updateTeam(@RequestBody TeamModel team){
         List<TeamModel> teamsList = getAllTeamsFromFile();
         try {
             for (int i = 0; i < teamsList.size(); i++) {
-                if (teamsList.get(i).getTeamName().equals(name)) {
+                if (teamsList.get(i).getTeamName().equals(team.getTeamName())) {
                     TeamModel teamModel = teamsList.get(i);
                     teamModel.setTeamName("Updated Team");
                 }
@@ -107,7 +115,7 @@ public class WaterpoloController {
 
             ObjectMapper objectMapper = new ObjectMapper();
             ObjectWriter writer = objectMapper.writer(new DefaultPrettyPrinter());
-            writer.writeValue(Paths.get("src/main/resources/writeData.json").toFile(), teamsList);
+            writer.writeValue(Paths.get("src/main/resources/readData.json").toFile(), teamsList);
         }
         catch(IOException e){
             e.printStackTrace();
