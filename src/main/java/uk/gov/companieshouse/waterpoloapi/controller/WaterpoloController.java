@@ -5,24 +5,45 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import uk.gov.companieshouse.waterpoloapi.model.PlayerModel;
 import uk.gov.companieshouse.waterpoloapi.model.TeamModel;
+import uk.gov.companieshouse.waterpoloapi.repository.TeamRepository;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/water-polo-api")
 public class WaterpoloController {
 
+    private TeamRepository repository;
+
+    @Value("${resource.dir}")
+    private String resourcedir;
+
+    @Autowired
+    public WaterpoloController(TeamRepository repository) {
+        this.repository = repository;
+    }
+
+    private File getResourceAsFile(String path){
+        String fullpath = resourcedir + "/" + path;
+        return new File(fullpath);
+    }
+
     @GetMapping("/teams")
     public List<TeamModel> getAllTeams(){
-        List<TeamModel> teamList = getAllTeamsFromFile();
+        List<TeamModel> teamList = repository.findAll();
 
         return teamList;
     }
@@ -31,7 +52,7 @@ public class WaterpoloController {
         List<TeamModel> teamList = new ArrayList<>();
         ObjectMapper objectMapper = new ObjectMapper();
         try{
-            teamList = objectMapper.readValue(new File("src/main/resources/readData.json"), new TypeReference<List<TeamModel>>() {
+            teamList = objectMapper.readValue(getResourceAsFile("readData.json"), new TypeReference<List<TeamModel>>() {
             });
 
         }
@@ -46,7 +67,7 @@ public class WaterpoloController {
         List<PlayerModel> playerList = new ArrayList<>();
         ObjectMapper objectMapper = new ObjectMapper();
         try{
-            playerList = objectMapper.readValue(new File("src/main/resources/players.json"), new TypeReference<List<PlayerModel>>() {
+            playerList = objectMapper.readValue(getResourceAsFile("players.json"), new TypeReference<List<PlayerModel>>() {
             });
 
         }
@@ -58,67 +79,23 @@ public class WaterpoloController {
 
     @PostMapping("/teams")
     public void sendTeams(@RequestBody TeamModel newTeam){
-        List<TeamModel> teamsListNew = getAllTeamsFromFile();
-        try{
-            teamsListNew.add(newTeam);
-            ObjectMapper objectMapper = new ObjectMapper();
-            ObjectWriter writer = objectMapper.writer(new DefaultPrettyPrinter());
-            writer.writeValue(Paths.get("src/main/resources/readData.json").toFile(), teamsListNew);
-
-        }
-        catch(IOException e){
-            e.printStackTrace();
-        }
+        repository.insert(newTeam);
     }
 
     @GetMapping("/teams/{name}")
     public TeamModel getTeam(@PathVariable String name){
-        List<TeamModel> teamsList = getAllTeamsFromFile();
+        Optional<TeamModel> teamsList = repository.findById(name);
 
-        for (int i = 0; i < teamsList.size(); i++) {
-            if (teamsList.get(i).getTeamName().equals(name)){
-                return teamsList.get(i);
-            }
-        }
-        return null;
+        return teamsList.orElse(null);
     }
 
     @PostMapping("/teams/delete")
     public void deleteTeam(@RequestBody TeamModel team){
-        List<TeamModel> teamsList = getAllTeamsFromFile();
-        try {
-            for (int i = 0; i < teamsList.size(); i++) {
-                if (teamsList.get(i).getTeamName().equals(team.getTeamName())) {
-                    teamsList.remove(teamsList.get(i));
-                }
-            }
-
-            ObjectMapper objectMapper = new ObjectMapper();
-            ObjectWriter writer = objectMapper.writer(new DefaultPrettyPrinter());
-            writer.writeValue(Paths.get("src/main/resources/readData.json").toFile(), teamsList);
-        }
-        catch(IOException e){
-            e.printStackTrace();
-        }
+        repository.delete(team);
     }
 
     @PostMapping("/teams/update")
     public void updateTeam(@RequestBody TeamModel team){
-        List<TeamModel> teamsList = getAllTeamsFromFile();
-        try {
-            for (int i = 0; i < teamsList.size(); i++) {
-                if (teamsList.get(i).getTeamName().equals(team.getTeamName())) {
-                    TeamModel teamModel = teamsList.get(i);
-                    teamModel.setTeamName("Updated Team");
-                }
-            }
-
-            ObjectMapper objectMapper = new ObjectMapper();
-            ObjectWriter writer = objectMapper.writer(new DefaultPrettyPrinter());
-            writer.writeValue(Paths.get("src/main/resources/readData.json").toFile(), teamsList);
-        }
-        catch(IOException e){
-            e.printStackTrace();
-        }
+        repository.save(team);
     }
 }

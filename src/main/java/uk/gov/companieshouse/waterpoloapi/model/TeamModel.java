@@ -1,13 +1,24 @@
 package uk.gov.companieshouse.waterpoloapi.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
 import java.util.List;
 
+@Document(collection = "teams")
 public class TeamModel {
+    @Id
     private String teamName;
+    @Field
     private String teamLocation;
+    @Field
     private int teamRank;
+    @Field
     private int teamPoints;
+    @Field
     private String teamCaptain;
+    @Field
     private List<PlayerModel> teamSquad;
 
     public TeamModel(String teamName, String teamLocation, int teamRank, int teamPoints, String teamCaptain, List<PlayerModel> teamSquad) {

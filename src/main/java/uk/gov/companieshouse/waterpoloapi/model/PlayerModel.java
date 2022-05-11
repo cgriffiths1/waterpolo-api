@@ -1,8 +1,13 @@
 package uk.gov.companieshouse.waterpoloapi.model;
 
+import org.springframework.data.mongodb.core.mapping.Field;
+
 public class PlayerModel {
+    @Field
     private String name;
+    @Field
     private int age;
+    @Field
     private String position;
 
     public PlayerModel(String name, int age, String position) {
