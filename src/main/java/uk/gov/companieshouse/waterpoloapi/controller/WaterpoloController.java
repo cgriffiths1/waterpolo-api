@@ -2,9 +2,7 @@ package uk.gov.companieshouse.waterpoloapi.controller;
 
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -14,11 +12,7 @@ import uk.gov.companieshouse.waterpoloapi.repository.TeamRepository;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,11 +37,10 @@ public class WaterpoloController {
 
     @GetMapping("/teams")
     public List<TeamModel> getAllTeams(){
-        List<TeamModel> teamList = repository.findAll();
-
-        return teamList;
+        return repository.findAll();
     }
 
+    //No longer used. Previously used to retrieve data from JSON file
     public List<TeamModel> getAllTeamsFromFile(){
         List<TeamModel> teamList = new ArrayList<>();
         ObjectMapper objectMapper = new ObjectMapper();
@@ -62,6 +55,7 @@ public class WaterpoloController {
         return teamList;
     }
 
+    //No longer used. Previously used to retrieve player data from JSON file
     @GetMapping("/allPlayers")
     public List<PlayerModel> getAllPlayersFromFile(){
         List<PlayerModel> playerList = new ArrayList<>();
@@ -78,7 +72,7 @@ public class WaterpoloController {
     }
 
     @PostMapping("/teams")
-    public void sendTeams(@RequestBody TeamModel newTeam){
+    public void sendTeam(@RequestBody TeamModel newTeam){
         repository.insert(newTeam);
     }
 
@@ -89,6 +83,7 @@ public class WaterpoloController {
         return teamsList.orElse(null);
     }
 
+    //Using PostMapping due to web setup of using same endpoint name for 2 buttons
     @PostMapping("/teams/delete")
     public void deleteTeam(@RequestBody TeamModel team){
         repository.delete(team);
